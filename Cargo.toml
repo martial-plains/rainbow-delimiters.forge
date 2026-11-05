@@ -1,0 +1,23 @@
+[package]
+name = "rainbow-delimiters"
+version = "0.1.0"
+edition = "2024"
+description = "Highlight brackets according to their depth: rainbow-delimiters-mode"
+license = "GPL-3.0-or-later"
+
+# Built into the .wasm by the SDK. No permissions needed.
+[package.metadata.forge]
+name = "rainbow-delimiters"
+
+# Standalone: not part of the main workspace build.
+[workspace]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+forge-plugin-sdk = { git = "https://github.com/martial-plains/forge" }
+
+[profile.release]
+opt-level = "s"
+lto = true
